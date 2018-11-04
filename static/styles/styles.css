@@ -1,0 +1,28 @@
+body {
+    font-family: helvetica, sans-serif;
+}
+
+.error {
+    color: rgba(255, 0, 0, 0.735);
+}
+
+}
+.title {
+    text-align: left;
+    font-size: 32px;
+    color: rgb(98, 99, 94);
+}
+
+.blog-nav {
+    display: block; 
+}
+
+.new-post {
+    padding: 25px;    
+}
+
+textarea {
+    border-radius: 5px;
+    width: 450px;
+    height: 350px;
+}

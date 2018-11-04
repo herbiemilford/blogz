@@ -6,7 +6,7 @@
         <p>No blogs yet</p>
         {% endif %}
         {% for blog in blogs %}
-        <h1><a href="/blog?id={{blog.id}}">{{blog.title}}</a></h1>
+        <h1 class="title"><a href="/blog?id={{blog.id}}">{{blog.title}}</a></h1>
 
         <p>{{blog.body}}</p>
 
