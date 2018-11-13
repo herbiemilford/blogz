@@ -5,8 +5,9 @@
   <head>
 
     <title>{{title}}</title>
+    <link href="https://fonts.googleapis.com/css?family=Spicy+Rice" rel="stylesheet">
     <link rel= "stylesheet" type="text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/normalize.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/normalize.css') }}">
         <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta http-equiv="Pragma" content="no-cache" />
         <meta http-equiv="Expires" content="0" />
@@ -14,16 +15,16 @@
 
   </head>
 
-  <body>
+  <body class="body">
 
     <div>
 
-      <nav>
+      <nav class="blog-nav">
 
-        <h1 class="blog-nav"><a href="/blog">Build a Blog</a></h1>
-        <a href="/post">New Post</a>
-        <a href="/blog?sort=oldest">Oldest</a>
-        <a href="/blog?sort=newest">Newest</a>
+        <h1><a href="/blog" class="blog-nav">Build-a-Blog</a></h1>
+        <a href="/post" class="blog-nav-a">New Post</a>
+        <a href="/blog?sort=oldest"class="blog-nav-a">Oldest</a>
+        <a href="/blog?sort=newest"class='blog-nav-a'>Newest</a>
 
       </nav>
       {% block content %}

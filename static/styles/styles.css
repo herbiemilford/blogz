@@ -1,7 +1,14 @@
 body {
+
+    background-color: #daad86);
     font-family: helvetica, sans-serif;
+    margin:0;
 }
 
+h1{
+    color: #312c32
+}
+}
 .error {
     color: rgba(255, 0, 0, 0.735);
 }
@@ -10,19 +17,58 @@ body {
 .title {
     text-align: left;
     font-size: 32px;
-    color: rgb(98, 99, 94);
+    color: #312c32;
 }
 
 .blog-nav {
-    display: block; 
+    display: in-line; 
+    background-color:#daad86;
+    text-align: left;
+    font-family: 'Spicy Rice', cursive;
+    font-kerning: normal;
+    color: #312c32;
+    font-size:100px;
+    padding-left:10px;
+    margin-left:0px;
 }
 
+.blog-nav-a {
+    text-align: left;
+    display: inline; 
+    background-color:;
+    color: #312c32;
+    font-size:30px;
+    padding-bottom:20px;
+}
+
+.blog-nav-b {
+    text-align: center;
+    display:; 
+    background-color:;
+    color: #312c32;
+    font-size:30px;
+}
+
+
+
+
 .new-post {
+    color:#312c32;
     padding: 25px;    
 }
 
+input {
+    background-color:#98dafc;
+    color:#312c32;
+    font-size:20px;
+    border-radius: 5px;
+}
+
 textarea {
+    background-color:#98dafc;
+    color:#312c32;
+    font-size:20px;
     border-radius: 5px;
     width: 450px;
-    height: 350px;
+    height: 150px;
 }

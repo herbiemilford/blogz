@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-      <div>
+      <div class="title">
         {% if blogs|length == 0 %}
         <p>No blogs yet</p>
         {% endif %}
         {% for blog in blogs %}
-        <h1 class="title"><a href="/blog?id={{blog.id}}">{{blog.title}}</a></h1>
+        <h1><a href="/blog?id={{blog.id}}" class='blog-nav-b'>{{blog.title}}</a></h1>
 
-        <p>{{blog.body}}</p>
+        <p class='blog-nav-b'>{{blog.body}}</p>
 
-        <p>Posted on: {{blog.created}}</p>
+        <p class='blog-nav-b'>Posted on: {{blog.created}}</p>
 
         <hr>
         {% endfor %}
