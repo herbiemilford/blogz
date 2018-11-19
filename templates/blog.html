@@ -1,18 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-      <div class="title">
-        {% if blogs|length == 0 %}
-        <p>No blogs yet</p>
-        {% endif %}
-        {% for blog in blogs %}
-        <h1><a href="/blog?id={{blog.id}}" class='blog-nav-b'>{{blog.title}}</a></h1>
+      <div class="blog blog-text wow fadeIn">
 
-        <p class='blog-nav-b'>{{blog.body}}</p>
-
-        <p class='blog-nav-b'>Posted on: {{blog.created}}</p>
+        <h1>Blogz! Posts</h1>
 
         <hr>
-        {% endfor %}
+
+          {% for post in posts %}
+          <div class="post">
+
+            <a href="/blog?id={{post.id}}"><p><h2>{{ post.title }}</h2></p></a>
+            <p class="body-text">{{ post.body }}</p>
+            <p class="pub-date">Posted on: {{ post.pub_date }}</p>
+            <p class="user">Posted by: <a href="/blog?userid={{post.owner_id}}">{{ post.owner.username }}</a></p>
+
+          </div>
+          {% endfor %}
       </div>
 {% endblock %}
