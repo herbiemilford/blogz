@@ -41,7 +41,7 @@ class User(db.Model):
 
     def __init__(self, username, password):
         self.username = username
-        
+        self.pw_hash = make_pw_hash(password)
 
 @app.before_request
 def require_login():
@@ -126,49 +126,29 @@ def signup():
 
 
 
-#login route-validate/verify user info in database
 
-@app.route('/login', methods=['POST', 'GET'])
-def login():
-    username_error = ""
-    password_error = ""
-
-    if request.method == 'POST':
-        password = request.form['password']
-        username = request.form['username']
-        user = User.query.filter_by(username=username).first()
-
-        if not user:
-            return render_template('login.html', username_error="Username does not exist.")
-        else:
-            return render_template('login.html', password_error="Your username or password is incorrect.")
-    return render_template('login.html')
 
 
 #route to main blog page
-@app.route('/blog')
-def blog_index():
+# TODO - Paginate Blog posts, limiting to 5 posts per page.
+@app.route('/blog', methods=['GET', 'POST'])
+def blog():
 
     blog_id = request.args.get('id')
-    blogs = Blog.query.all()
+    user_id = request.args.get('userid')
+
+    posts = Blog.query.order_by(Blog.pub_date.desc())
 
     if blog_id:
-        post = Blog.query.get(blog_id)
-        blog_title = post.title
-        blog_body = post.body
-        # Use Case 1: Click on a blog entry's title on the main page and go to a blog's individual entry page.
-        return render_template('entry.html', title="Blog Entry #" + blog_id, blog_title=blog_title, blog_body=blog_body)
-            
-   #TODO - Sort post request from newest to oldest         
-    sort = request.args.get('sort')
-
-    if (sort=="newest"):
-        blogs = Blog.query.order_by(Blog.created.desc()).all()
-    elif (sort=="oldest"):
-        blogs = Blog.query.order_by(Blog.created.asc()).all()
-    else:
-        blogs = Blog.query.all()
-    return render_template('blog.html',title="Build A Blog", blogs=blogs)      
+        post = Blog.query.filter_by(id=blog_id).first()
+        return render_template("post.html", title=post.title, body=post.body, user=post.owner.username, pub_date=post.pub_date, user_id=post.owner_id)
+        
+    if user_id:
+        entries = Blog.query.filter_by(owner_id=user_id).all()
+        return render_template('user.html', entries=entries)
+           
+      
+    return render_template('blog.html', posts=posts)
 
 #handler route to newpost page redirects to post.
 @app.route('/newpost')
