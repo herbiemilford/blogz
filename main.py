@@ -1,7 +1,7 @@
-from flask import Flask, request, redirect, render_template, session, flash
+from flask import Flask, request, redirect, render_template, session
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-
+from hashutils import make_pw_hash, check_pw_hash
 
 
 
@@ -20,7 +20,7 @@ class Blog(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(120))
     body = db.Column(db.Text)
-    owner_id = db.Column(db.Text)
+    owner_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     pub_date = db.Column(db.DateTime)
     
 
@@ -161,29 +161,29 @@ def newpost():
     body = request.form['body']
     owner = User.query.filter_by(username=session['username']).first()
     
-    title_error = ''
-    body_error = ''
+    title_error = ""
+    body_error = ""
 
     #error validation messages if blog/title is empty return error text.
     if title == "":
-        title_error = "Title required"
+        title_error = "Title required."
     if body == "":
-        body_error = "Content required"
+        body_error = "Content required."
 
-    # add new blog post and commit it to table with new id.
+    # ad id new blog post and commit it to table with new id.
     if not title_error and not body_error:
-        new_blog = Blog(title, body, owner)
+        new_post = Blog(title, body, owner)
         db.session.add(new_post)
         db.session.commit()
-        page_id = new_blog.id
-        return redirect('/blog?id={0}'.format(page_id))
+        page_id = new_post.id
+        return redirect("/blog?id={0}".format(page_id))
     else:
-        return render_template('newpost.html',
+        return render_template("newpost.html",
             title = title,
             body = body,
             title_error = title_error,
-            body_error = body_error)
-
+            body_error = body_error
+        )
 
 # Logout - deletes current user session, redirects to index.
 @app.route('/logout')
