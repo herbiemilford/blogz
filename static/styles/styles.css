@@ -86,17 +86,26 @@ textarea {
 }
 
 /* signup text */
-.signup-text{
-    text-align: center;
+.signup{
+    text-align: left;
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
     display:; 
     background-color:;
     color: #312c32;
-    font-size:30px;
+    font-size:15px;
 }
 
 /* links */
 
 a{
     color: #96858f;
+}
+
+.pub-date{
+    text-align: left;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    display:; 
+    background-color:;
+    color: #312c32;
+    font-size:15px;
 }
