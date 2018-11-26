@@ -130,7 +130,6 @@ def signup():
 
 
 #route to main blog page
-# TODO - Paginate Blog posts, limiting to 5 posts per page.
 @app.route('/blog', methods=['GET', 'POST'])
 def blog():
 
@@ -170,7 +169,7 @@ def newpost():
     if body == "":
         body_error = "Content required."
 
-    # ad id new blog post and commit it to table with new id.
+    # add id new blog post and commit it to table with new id.
     if not title_error and not body_error:
         new_post = Blog(title, body, owner)
         db.session.add(new_post)
