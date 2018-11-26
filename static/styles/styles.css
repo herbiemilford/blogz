@@ -6,10 +6,12 @@ html {
     background-size: cover;
     font-family: helvetica, sans-serif;
     font-size: 20px;
-
+text-align: center;
   }
 
-
+[type=submit]{
+    margin: 20px 0px 20px 0px;
+}
 
 
 body {
@@ -52,7 +54,7 @@ h2{
 
 
 .title{
-    text-align: left;
+    text-align: center;
     font-size: 32px;
     color: #312c32;
 }
@@ -60,25 +62,31 @@ h2{
 /* blog navigation bar */
 .blog-nav {
 
-    display:; 
+    display:block; 
     background-color:#6d7993;
     opacity:0.9;
-    text-align: left;
+    text-align: center;
     font-family: 'Spicy Rice', cursive;
     font-kerning: normal;
     color: #312c32;
-    font-size:100px;
-    padding-left:10px;
-    margin:0px;
+    font-size:130px;
+    padding:20px, 50px,20px,50px;
+    margin:0px,50px, 5px, 50px;
+    border-radius:2%;
 }
 
 .blog-nav-a {
-    text-align: left;
-    display: inline; 
-    background-color:;
+    display:; 
+    background-color:#6d7993;
+    opacity:0.9;
+    text-align: center;
+    font-family: 'Spicy Rice', cursive;
+    font-kerning: normal;
     color: #312c32;
-    font-size:30px;
-    padding-bottom:20px;
+    font-size:40px;
+    padding:10px;
+    margin:10px, 400px, 10px, 400px;
+    border-radius:2%;
 }
 
 .blog-nav-b {
@@ -102,6 +110,7 @@ input {
     color:#312c32;
     font-size:20px;
     border-radius: 5px;
+    margin: 0px,0px,0px,20px;
 }
 
 textarea {
